@@ -1,1 +1,25 @@
-.
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بث مباشر خاص</title>
+</head>
+<body>
+    <h1 style="text-align:center;">بث مباشر لأصدقائي</h1>
+    <video id="camera" width="100%" autoplay></video>
+
+    <script>
+        const video = document.getElementById('camera');
+
+        // الوصول للكاميرا
+        navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+            .then(stream => {
+                video.srcObject = stream;
+            })
+            .catch(err => {
+                alert("لا يمكن الوصول للكاميرا أو المايكروفون: " + err);
+            });
+    </script>
+</body>
+</html>
